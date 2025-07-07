@@ -149,8 +149,61 @@ public class KolmeDbContext : DbContext
         );
 
         modelBuilder.Entity<Employee>().HasData(
-            new Employee { EmployeeId = 1, FirstName = "John", LastName = "Doe", DepartmentId = 1, JobTitleId = 1, LocationId = 1, DivisionId = 1 },
-            new Employee { EmployeeId = 2, FirstName = "Jane", LastName = "Smith", DepartmentId = 2, JobTitleId = 2, LocationId = 2, DivisionId = 2, ReportingManagerId = 1 }
+
+            new Employee
+            {
+                EmployeeId = 1,
+                EmployeeCode = "EMP001",
+                FirstName = "John",
+                MiddleName = "A",
+                LastName = "Doe",
+                PreferredName = "Johnny",
+                PreviousSurname = string.Empty,
+                Gender = "M",
+                StartDate = new DateTime(2024, 1, 15),
+                BloodGroup = "O+",
+                Address = "123 Main St",
+                MotherName = "Anna Doe",
+                FatherOrHusbandName = "Robert Doe",
+                Relationship = "Single",
+                StateOrRegion = "NY",
+                Country = "USA",
+                PostalCode = "10001",
+                Telephone = "555-1000",
+                Mobile = "555-2000",
+                DepartmentId = 1,
+                JobTitleId = 1,
+                LocationId = 1,
+                DivisionId = 1
+            },
+            new Employee
+            {
+                EmployeeId = 2,
+                EmployeeCode = "EMP002",
+                FirstName = "Jane",
+                MiddleName = "B",
+                LastName = "Smith",
+                PreferredName = "Janey",
+                PreviousSurname = string.Empty,
+                Gender = "F",
+                StartDate = new DateTime(2024, 2, 10),
+                BloodGroup = "A+",
+                Address = "456 Market St",
+                MotherName = "Betty Smith",
+                FatherOrHusbandName = "Michael Smith",
+                Relationship = "Married",
+                StateOrRegion = "London",
+                Country = "UK",
+                PostalCode = "SW1A1AA",
+                Telephone = "020-7000",
+                Mobile = "07000-2000",
+                DepartmentId = 2,
+                JobTitleId = 2,
+                LocationId = 2,
+                DivisionId = 2,
+                ReportingManagerId = 1
+            }
+
         );
 
         modelBuilder.Entity<EmployeeRoleAssignment>().HasData(
