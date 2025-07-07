@@ -8,7 +8,9 @@ export default function Header() {
       <span className="navbar-brand mb-0 h1">Kolme</span>
       <div className="ms-auto">
         <button className="btn btn-sm btn-outline-light" onClick={logout} aria-label="Logout">
-          <i className="bi bi-box-arrow-right me-1"></i>
+
+          <i className="bi bi-box-arrow-right me-1" aria-hidden="true"></i>
+
           Logout
         </button>
       </div>
