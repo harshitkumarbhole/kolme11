@@ -3,6 +3,7 @@ namespace Kolme.API.Models;
 public class Employee
 {
     public int EmployeeId { get; set; }
+
     public string EmployeeCode { get; set; } = string.Empty;
     public string FirstName { get; set; } = string.Empty;
     public string MiddleName { get; set; } = string.Empty;
@@ -21,6 +22,7 @@ public class Employee
     public string PostalCode { get; set; } = string.Empty;
     public string Telephone { get; set; } = string.Empty;
     public string Mobile { get; set; } = string.Empty;
+
 
     public int DepartmentId { get; set; }
     public Department Department { get; set; } = null!;

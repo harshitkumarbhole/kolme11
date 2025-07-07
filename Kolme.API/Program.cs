@@ -7,8 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
+
     // Use camelCase JSON serialization so JavaScript clients receive lower-cased property names
     options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+
 });
 
 builder.Services.AddEndpointsApiExplorer();
@@ -47,7 +49,9 @@ using (var scope = app.Services.CreateScope())
     var db = scope.ServiceProvider.GetRequiredService<KolmeDbContext>();
     // EnsureCreated is useful for quick development testing only. It bypasses
     // migrations and should not be relied on in production.
+
     // TODO: Run `dotnet ef migrations add InitialCreate` and `dotnet ef database update` manually in VS Code.
+
     db.Database.EnsureCreated();
 }
 

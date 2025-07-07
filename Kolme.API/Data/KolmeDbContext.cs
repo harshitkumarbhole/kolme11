@@ -149,6 +149,7 @@ public class KolmeDbContext : DbContext
         );
 
         modelBuilder.Entity<Employee>().HasData(
+
             new Employee
             {
                 EmployeeId = 1,
@@ -202,6 +203,7 @@ public class KolmeDbContext : DbContext
                 DivisionId = 2,
                 ReportingManagerId = 1
             }
+
         );
 
         modelBuilder.Entity<EmployeeRoleAssignment>().HasData(
