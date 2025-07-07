@@ -53,55 +53,74 @@ public class KolmeDbContext : DbContext
         modelBuilder.Entity<EmployeeRoleAssignment>()
             .HasOne(er => er.Employee)
             .WithMany(e => e.EmployeeRoles)
-            .HasForeignKey(er => er.EmployeeId);
+
+            .HasForeignKey(er => er.EmployeeId)
+            .OnDelete(DeleteBehavior.Restrict);
         modelBuilder.Entity<EmployeeRoleAssignment>()
             .HasOne(er => er.Role)
             .WithMany(r => r.EmployeeRoles)
-            .HasForeignKey(er => er.RoleId);
+            .HasForeignKey(er => er.RoleId)
+            .OnDelete(DeleteBehavior.Restrict);
+
 
         modelBuilder.Entity<EmployeeModuleAssignment>()
             .HasKey(em => new { em.EmployeeId, em.ModuleId });
         modelBuilder.Entity<EmployeeModuleAssignment>()
             .HasOne(em => em.Employee)
             .WithMany(e => e.EmployeeModules)
-            .HasForeignKey(em => em.EmployeeId);
+
+            .HasForeignKey(em => em.EmployeeId)
+            .OnDelete(DeleteBehavior.Restrict);
         modelBuilder.Entity<EmployeeModuleAssignment>()
             .HasOne(em => em.Module)
             .WithMany(m => m.EmployeeModules)
-            .HasForeignKey(em => em.ModuleId);
+            .HasForeignKey(em => em.ModuleId)
+            .OnDelete(DeleteBehavior.Restrict);
+
 
         modelBuilder.Entity<EmployeeLocationAssignment>()
             .HasKey(el => new { el.EmployeeId, el.LocationId });
         modelBuilder.Entity<EmployeeLocationAssignment>()
             .HasOne(el => el.Employee)
             .WithMany(e => e.EmployeeLocations)
-            .HasForeignKey(el => el.EmployeeId);
+
+            .HasForeignKey(el => el.EmployeeId)
+            .OnDelete(DeleteBehavior.Restrict);
         modelBuilder.Entity<EmployeeLocationAssignment>()
             .HasOne(el => el.Location)
             .WithMany(l => l.EmployeeLocations)
-            .HasForeignKey(el => el.LocationId);
+            .HasForeignKey(el => el.LocationId)
+            .OnDelete(DeleteBehavior.Restrict);
+
 
         modelBuilder.Entity<RoleModule>()
             .HasKey(rm => new { rm.RoleId, rm.ModuleId });
         modelBuilder.Entity<RoleModule>()
             .HasOne(rm => rm.Role)
             .WithMany(r => r.RoleModules)
-            .HasForeignKey(rm => rm.RoleId);
+
+            .HasForeignKey(rm => rm.RoleId)
+            .OnDelete(DeleteBehavior.Restrict);
         modelBuilder.Entity<RoleModule>()
             .HasOne(rm => rm.Module)
             .WithMany(m => m.RoleModules)
-            .HasForeignKey(rm => rm.ModuleId);
+            .HasForeignKey(rm => rm.ModuleId)
+            .OnDelete(DeleteBehavior.Restrict);
+
 
         modelBuilder.Entity<ModuleDocument>()
             .HasKey(md => new { md.ModuleId, md.DocumentId });
         modelBuilder.Entity<ModuleDocument>()
             .HasOne(md => md.Module)
             .WithMany(m => m.ModuleDocuments)
-            .HasForeignKey(md => md.ModuleId);
+
+            .HasForeignKey(md => md.ModuleId)
+            .OnDelete(DeleteBehavior.Restrict);
         modelBuilder.Entity<ModuleDocument>()
             .HasOne(md => md.Document)
             .WithMany(d => d.ModuleDocuments)
-            .HasForeignKey(md => md.DocumentId);
+            .HasForeignKey(md => md.DocumentId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         SeedData(modelBuilder);
     }
