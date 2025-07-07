@@ -1,3 +1,4 @@
+
 import Button from '../components/common/Button';
 
 export default function Dashboard() {
@@ -8,10 +9,12 @@ export default function Dashboard() {
     { id: 4, title: 'Errors', value: 1, icon: 'x-circle', color: 'danger' },
   ];
 
+
   return (
     <div className="container-fluid">
       <h1 className="my-4 border-bottom pb-2">Dashboard</h1>
       <div className="row g-3">
+
         {cards.map((card) => (
           <div key={card.id} className="col-6 col-md-3">
             <div className={`card text-white bg-${card.color}`}>
@@ -20,6 +23,7 @@ export default function Dashboard() {
                 <div>
                   <h2 className="h6 mb-1">{card.title}</h2>
                   <p className="h4 mb-0" aria-label={`${card.title} count`}>{card.value}</p>
+
                 </div>
               </div>
             </div>

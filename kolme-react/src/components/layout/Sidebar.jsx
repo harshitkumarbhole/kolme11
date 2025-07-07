@@ -4,6 +4,7 @@ import { useState } from 'react';
 export default function Sidebar() {
   const [open, setOpen] = useState(true);
   return (
+
     <nav className={`bg-dark text-white sidebar ${open ? 'open' : 'collapsed'}`} aria-label="Sidebar navigation">
       <button
         className="btn btn-dark w-100 d-md-none"
@@ -27,21 +28,28 @@ export default function Sidebar() {
         <li className="nav-item">
           <NavLink to="/employees/add" className="nav-link text-white">
             <i className="bi bi-person-plus me-2" aria-hidden="true"></i>Add Employee
+
           </NavLink>
         </li>
         <li className="nav-item">
           <NavLink to="/roles" className="nav-link text-white">
+
             <i className="bi bi-shield-lock me-2" aria-hidden="true"></i>Roles
+
           </NavLink>
         </li>
         <li className="nav-item">
           <NavLink to="/modules" className="nav-link text-white">
+
             <i className="bi bi-collection me-2" aria-hidden="true"></i>Modules
+
           </NavLink>
         </li>
         <li className="nav-item">
           <NavLink to="/leave-requests" className="nav-link text-white">
+
             <i className="bi bi-calendar-check me-2" aria-hidden="true"></i>Leave Requests
+
           </NavLink>
         </li>
       </ul>
