@@ -1,0 +1,34 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.sidebar {
+  width: 200px;
+}
+
+.sidebar.collapsed {
+  width: 0;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .sidebar {
+    position: absolute;
+    z-index: 1000;
+    height: 100vh;
+  }
+}
+
+@media (max-width: 575px) {
+  .table-card tbody tr {
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .table-card td,
+  .table-card th {
+    display: block;
+  }
+  .table-card thead {
+    display: none;
+  }
+}
