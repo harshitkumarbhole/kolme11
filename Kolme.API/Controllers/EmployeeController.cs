@@ -15,6 +15,7 @@ public class EmployeeController : ControllerBase
         _logger = logger;
     }
 
+
     [HttpGet("search")]
     public ActionResult<IEnumerable<EmployeeListDTO>> Search(string? term)
     {
@@ -59,6 +60,7 @@ public class EmployeeController : ControllerBase
                 JobTitle = e.JobTitle.Title
             }).ToList();
 
+
             return Ok(employees);
         }
         catch (Exception ex)
@@ -68,13 +70,16 @@ public class EmployeeController : ControllerBase
         }
     }
 
+
     [HttpPost("add")]
     public ActionResult<EmployeeListDTO> Add(CreateEmployeeDTO dto)
+
     {
         try
         {
             var employee = new Employee
             {
+
                 EmployeeCode = dto.EmployeeCode,
                 FirstName = dto.FirstName,
                 MiddleName = dto.MiddleName,
@@ -93,6 +98,7 @@ public class EmployeeController : ControllerBase
                 PostalCode = dto.PostalCode,
                 Telephone = dto.Telephone,
                 Mobile = dto.Mobile,
+
                 DepartmentId = dto.DepartmentId,
                 JobTitleId = dto.JobTitleId,
                 LocationId = dto.LocationId,
@@ -101,6 +107,7 @@ public class EmployeeController : ControllerBase
             };
             _context.Employees.Add(employee);
             _context.SaveChanges();
+
 
             foreach (var roleId in dto.AssignedRoles)
             {
@@ -250,6 +257,7 @@ public class EmployeeController : ControllerBase
                 _context.SaveChanges();
             }
             return NoContent();
+
         }
         catch (Exception ex)
         {
@@ -265,6 +273,7 @@ public class EmployeeController : ControllerBase
         {
             var employee = _context.Employees.Find(id);
             if (employee == null) return NotFound();
+
 
             employee.EmployeeCode = dto.EmployeeCode;
             employee.FirstName = dto.FirstName;
@@ -284,6 +293,7 @@ public class EmployeeController : ControllerBase
             employee.PostalCode = dto.PostalCode;
             employee.Telephone = dto.Telephone;
             employee.Mobile = dto.Mobile;
+
             employee.DepartmentId = dto.DepartmentId;
             employee.JobTitleId = dto.JobTitleId;
             employee.LocationId = dto.LocationId;

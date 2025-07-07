@@ -53,6 +53,7 @@ public class KolmeDbContext : DbContext
         modelBuilder.Entity<EmployeeRoleAssignment>()
             .HasOne(er => er.Employee)
             .WithMany(e => e.EmployeeRoles)
+
             .HasForeignKey(er => er.EmployeeId)
             .OnDelete(DeleteBehavior.Restrict);
         modelBuilder.Entity<EmployeeRoleAssignment>()
@@ -61,11 +62,13 @@ public class KolmeDbContext : DbContext
             .HasForeignKey(er => er.RoleId)
             .OnDelete(DeleteBehavior.Restrict);
 
+
         modelBuilder.Entity<EmployeeModuleAssignment>()
             .HasKey(em => new { em.EmployeeId, em.ModuleId });
         modelBuilder.Entity<EmployeeModuleAssignment>()
             .HasOne(em => em.Employee)
             .WithMany(e => e.EmployeeModules)
+
             .HasForeignKey(em => em.EmployeeId)
             .OnDelete(DeleteBehavior.Restrict);
         modelBuilder.Entity<EmployeeModuleAssignment>()
@@ -74,11 +77,13 @@ public class KolmeDbContext : DbContext
             .HasForeignKey(em => em.ModuleId)
             .OnDelete(DeleteBehavior.Restrict);
 
+
         modelBuilder.Entity<EmployeeLocationAssignment>()
             .HasKey(el => new { el.EmployeeId, el.LocationId });
         modelBuilder.Entity<EmployeeLocationAssignment>()
             .HasOne(el => el.Employee)
             .WithMany(e => e.EmployeeLocations)
+
             .HasForeignKey(el => el.EmployeeId)
             .OnDelete(DeleteBehavior.Restrict);
         modelBuilder.Entity<EmployeeLocationAssignment>()
@@ -87,11 +92,13 @@ public class KolmeDbContext : DbContext
             .HasForeignKey(el => el.LocationId)
             .OnDelete(DeleteBehavior.Restrict);
 
+
         modelBuilder.Entity<RoleModule>()
             .HasKey(rm => new { rm.RoleId, rm.ModuleId });
         modelBuilder.Entity<RoleModule>()
             .HasOne(rm => rm.Role)
             .WithMany(r => r.RoleModules)
+
             .HasForeignKey(rm => rm.RoleId)
             .OnDelete(DeleteBehavior.Restrict);
         modelBuilder.Entity<RoleModule>()
@@ -100,11 +107,13 @@ public class KolmeDbContext : DbContext
             .HasForeignKey(rm => rm.ModuleId)
             .OnDelete(DeleteBehavior.Restrict);
 
+
         modelBuilder.Entity<ModuleDocument>()
             .HasKey(md => new { md.ModuleId, md.DocumentId });
         modelBuilder.Entity<ModuleDocument>()
             .HasOne(md => md.Module)
             .WithMany(m => m.ModuleDocuments)
+
             .HasForeignKey(md => md.ModuleId)
             .OnDelete(DeleteBehavior.Restrict);
         modelBuilder.Entity<ModuleDocument>()
@@ -159,6 +168,7 @@ public class KolmeDbContext : DbContext
         );
 
         modelBuilder.Entity<Employee>().HasData(
+
             new Employee
             {
                 EmployeeId = 1,
@@ -212,6 +222,7 @@ public class KolmeDbContext : DbContext
                 DivisionId = 2,
                 ReportingManagerId = 1
             }
+
         );
 
         modelBuilder.Entity<EmployeeRoleAssignment>().HasData(

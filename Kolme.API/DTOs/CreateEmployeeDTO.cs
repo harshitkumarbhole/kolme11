@@ -2,6 +2,7 @@ namespace Kolme.API.DTOs;
 
 public class CreateEmployeeDTO
 {
+
     public string EmployeeCode { get; set; } = string.Empty;
     public string FirstName { get; set; } = string.Empty;
     public string MiddleName { get; set; } = string.Empty;
@@ -21,13 +22,16 @@ public class CreateEmployeeDTO
     public string Telephone { get; set; } = string.Empty;
     public string Mobile { get; set; } = string.Empty;
 
+
     public int DepartmentId { get; set; }
     public int JobTitleId { get; set; }
     public int LocationId { get; set; }
     public int DivisionId { get; set; }
     public int? ReportingManagerId { get; set; }
 
+
     public List<int> AssignedRoles { get; set; } = new();
     public List<int> AssignedModules { get; set; } = new();
     public List<int> AssignedLocations { get; set; } = new();
+
 }
